@@ -16,3 +16,6 @@ class Course:
 
     def toString(self):
         return self.dept + " " + self.code + " " + str(self.numStudents)
+
+    def __hash__(self):
+        return hash((self.dept, self.code))

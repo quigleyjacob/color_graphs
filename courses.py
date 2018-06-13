@@ -2,6 +2,8 @@ import os, sys
 import pickle
 from course import Course
 
+# This file is not used in the current implementation
+
 filename = sys.argv[1]
 
 def xlsx(fname):
