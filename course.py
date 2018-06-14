@@ -18,4 +18,11 @@ class Course:
         return self.dept + " " + self.code + " " + str(self.numStudents)
 
     def __hash__(self):
-        return hash((self.dept, self.code))
+        string = str(self.dept)+str(self.code)
+        code = 1
+        i=0
+        # print(string)
+        for s in string:
+            code *= (ord(s)*(31**i))%131071
+            i+=1
+        return code % 131071
