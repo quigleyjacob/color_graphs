@@ -13,13 +13,14 @@ data = open('students.pickle', 'wb')
 pickle.dump(students, data)
 data.close()
 
-edges = []
+edges = {}
 for s in students:
     courses = students[s].courses
     for c in courses:
         for d in courses:
             if c is not d:
-                edges.append(Edge(c,d))
+                e = Edge(c,d)
+                edges[e.__hash__()] = e
 
 data = open('edges.pickle', 'wb')
 pickle.dump(edges, data)
